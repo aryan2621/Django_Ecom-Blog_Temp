@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Source+Sans+Pro:wght@600&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>BEGINNING</title>
+    <style>
+      main {
+        width: 80vw !important;
+
+        margin: auto;
+        background-color: rgb(red, rgb(208, 218, 208), rgb(209, 209, 235)) !important;
+      }
+
+      body {
+        font-family: 'Roboto Mono', monospace;
+      }
+      body{
+        background:rgb(204, 204, 255);
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <nav class="mb-4 navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">My-Awesome-Cart</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+
+    <main>
+      <section class="py-5  text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Album example</h1>
+            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
+              etc. Make it short and sweet</p>
+            <p>
+              <a href="/shop" class="btn btn-primary my-2">Go To Shop</a>
+              <a href="/blog" class="btn btn-secondary my-2">Go To Blog</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer font-small bg-dark mb-0" style="margin-top: 93px;">
+      <div style="font-size: large;" class="footer-copyright text-light text-center py-3">© 2021 Copyright
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"></script>
+    {% block js %} {% endblock %}
+  </body>
+
+</html>

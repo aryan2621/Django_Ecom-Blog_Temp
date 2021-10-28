@@ -1,0 +1,58 @@
+{% extends 'blog/basic.html'%}
+
+{% block title %}
+
+BLOG
+
+{% endblock %}
+
+{% block body %}
+<style>
+    .fb-like{
+        padding:3px;
+        margin:0 0 5px 0;
+    }
+</style>
+<nav class="mb-4 navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">START</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-8 blog-main">
+            <h1 class="pb-4 ">
+                {{post.title}}
+            </h1>
+            
+            <p class="blog-post-meta">{{d2}} by <a href="https://www.linkedin.com/in/rishabh-verma-5366901a1/">Rishabh Verma</a></p>
+            <div class="fb-like" data-href="http://127.0.0.1:8000/blog/blogpost/{{post.post_id}}" data-layout="standard" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div><br>
+
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{post.head0}}</h2>
+                <p>{{post.chead0}}</p>
+                <h2 class="blog-post-title">{{post.head1}}</h2>
+                <p> {{post.chead1}}</p>
+                <h2 class="blog-post-title">{{post.head1}}</h2>
+                <p>{{post.chead2}}</p>
+            </div>
+        </div>
+        <aside class="col-md-4 blog-sidebar">
+            <div class="p-4 mb-3 rounded">
+                <h4>About</h4>
+                <p class="mb-0">A Blog Website<em> like Medium.</em></p>
+            </div>
+            <div class="p-4">
+                <h4 class="">Contact Us On: </h4>
+                <ol class="list-unstyled">
+                    <li><a href="https://github.com/aryan2621">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/rishabh-verma-5366901a1/">Linkedin</a></li>
+                </ol>
+            </div>
+        </aside>
+    </div>
+</div>
+{% endblock %}

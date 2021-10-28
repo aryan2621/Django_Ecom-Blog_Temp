@@ -1,0 +1,56 @@
+{% extends 'blog/basic.html'%}
+{% block title %} BLOG {% endblock %} 
+{% block body %}
+<style>
+  .temp{
+    background:rgb(100, 149, 237);
+  }
+  body{
+    background:rgb(204, 204, 255);
+  }
+</style>
+<nav class="mb-4 navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">START</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+<main class="container">
+  <div class="p-4 p-md-5 mb-4 text-white rounded temp">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+      <p class="lead my-3">
+        Multiple lines of text that form the lede, informing new readers quickly
+        and efficiently about what’s most interesting in this post’s contents.
+      </p>
+      <p class="lead mb-0">
+        <a href="#" class="text-white fw-bold">Continue reading...</a>
+      </p>
+    </div>
+  </div>
+  <div class="row mb-2">
+    {% for post in myposts %}
+    <div class="col-md-6">
+      <div class="row g-0 border
+          rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{post.post_id}}</strong>
+          <h3 class="mb-0">{{post.title}}</h3>
+          <div class="mb-1 text-muted">{{post.head0}}</div>
+          <p class="card-text mb-auto">
+            {{post.chead0|slice:"0:75"}}...
+          </p>
+          <a  href="blogpost/{{post.post_id}}" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="/media/{{post.thumbnail}}" class="thumbnail" width="200" height="250" aria-label="Placeholder: Thumbnail"/>
+      </div>
+      </div>
+      {% if forloop.counter|divisibleby:2 %}
+    </div>
+    <div class="row mb-2">{% endif %}</div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends 'shop/basic.html'%}
+
+{% block title %}
+HISTORY
+{% endblock %}
+
+{% block body %}
+
+<nav class="mb-4 navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">START</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="/shop">Home </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/shop/about">About </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/shop/tracker">Tracker</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/shop/contact">Contact Us <span class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="mx-2 btn btn-outline-primary" type="submit">Search</button>
+          </form>
+        <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover"
+            data-placement="bottom" data-html="true" data-content="">
+            Cart[<span id="cart">0</span>]
+        </button>
+    </div>
+</nav>
+
+<section class=" p-4 content content_content" style="height:70vh;width: 70%; margin: auto; border:6px solid black">
+    <section class="invoice">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="page-header">
+                    <i class="fa fa-globe"></i> Order Placed
+                </h2>
+                <b class="pull-right">Currenty Time: {{user.times}}</b>
+            </div>
+        </div>
+        <div class="row invoice-info">
+            <div class="col-sm-6 invoice-col">
+                To
+                <address>
+                    <strong>{{user.name}}</strong>
+                    <br>
+                    <b>Address:</b> {{user.address}} <br>
+                    <b>Phone:</b> {{user.phone}}<br>
+                </address>
+            </div>
+            <div class="col-sm-6 invoice-col">
+                <b>Email:</b> {{user.email}}<br>
+                <b>Order ID:</b>{{id}}<br>
+                <b>Payment on: </b>{{user.dates}}<br>
+                <b>City/State:</b> {{user.city}}/{{user.state}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Qty</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="su">2</td>
+                            <td id="qty">18</td>
+                            <td class="totalPrice"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row no-print">
+            <div class="col-xs-12">
+                <a href="" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                <button onclick="window.print()" class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i>
+                    Generate PDF</button>
+                <a id="myBtn" class="mx-4 btn btn-success">Back To Shop</a>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+{% endblock %}
+{% block js %}
+<script>
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    } else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+
+    }
+    var sum = 0;
+    var totalPrice = 0;
+    var quan = 0;
+    for (item in cart) {
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let itemPrice = cart[item][2];
+        sum = sum + qty;
+        quan = quan + qty
+        totalPrice = totalPrice + itemPrice * qty
+    }
+    document.getElementById('cart').innerHTML = sum;
+    document.getElementById('su').innerHTML = sum;
+    var items = document.getElementsByClassName("totalPrice"),
+        i, len;
+    for (i = 0, len = items.length; i < len; i++) {
+        items[i].innerHTML = totalPrice;
+    }
+    document.getElementById('qty').innerHTML = quan;
+    document.getElementById("myBtn").addEventListener("click", myFunction);
+
+    function myFunction() {
+        localStorage.clear();
+        document.location="/shop"
+    }
+</script>
+{% endblock %}
